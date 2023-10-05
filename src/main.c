@@ -58,14 +58,14 @@ int main() {
 
 				if (!first_click) {
 					// Do down click
-					SendMessage(current_window, WM_LBUTTONDOWN, MK_LBUTTON, MAKELPARAM(pt.x, pt.y));
+					PostMessage(current_window, WM_LBUTTONDOWN, MK_LBUTTON, MAKELPARAM(pt.x, pt.y));
 				}
 
 				// Sleep
-				Sleep(gen_num(500 / MAX_CPS, 500 / MIN_CPS));
+				Sleep(gen_num(500 / MAX_CPS, 500 / MIN_CPS)); // sleep is not accurate, should be replaced with a timer
 
 				// Do up click
-				SendMessage(current_window, WM_LBUTTONUP, MK_LBUTTON, MAKELPARAM(pt.x, pt.y));
+				PostMessage(current_window, WM_LBUTTONUP, MK_LBUTTON, MAKELPARAM(pt.x, pt.y));
 
 				// Sleep again
 				Sleep(gen_num(500 / MAX_CPS, 500 / MIN_CPS));
